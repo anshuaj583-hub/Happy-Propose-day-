@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Happy Propose Day 💕</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -18,6 +19,7 @@ body {
   overflow: hidden;
 }
 
+/* COMMON SCREEN */
 .screen {
   position: fixed;
   inset: 0;
@@ -25,120 +27,18 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  z-index: 1;
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /* START SCREEN */
-.start-content h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 64px;
-  color: rgba(249,127,130,1);
-  margin-bottom: 20px;
+#startScreen {
+  z-index: 5;
 }
 
-.start-content p {
-  font-size: 22px;
-  opacity: 0.8;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
-}
-
-/* QUESTION BOX */
-.box {
-  background: white;
-  padding: 60px 70px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(249,127,130,0.25);
-  width: 700px;
-  max-width: 90%;
-}
-
-.question {
-  font-size: 56px;
-  color: rgba(249,127,130,1);
-  margin-bottom: 40px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-button {
-  font-size: 28px;
-  padding: 18px 50px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.yes-btn {
-  background: rgba(249,127,130,1);
-  color: white;
-}
-
-.no-btn {
-  background: white;
-  color: rgba(249,127,130,1);
-  border: 2px solid rgba(249,127,130,1);
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* KATTI SCREEN */
-.katti-bg {
-  background-image: url("katti.jpg");
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 120px;
-}
-
-.katti-text {
-  font-size: 80px;
-  color: white;
-  text-shadow: 0 6px 20px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
-}
-
-.sorry-text {
-  font-size: 32px;
-  font-weight: 700;
-  color: white;
-  background: rgba(0,0,0,0.75);
-  padding: 14px 34px;
-  border-radius: 30px;
-  animation: bounce 1.6s infinite;
-}
-
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* FINAL SCREEN */
-.love-text {
-  font-family: 'Lobster', cursive;
-  font-size: 96px;
-  color: rgba(249,127,130,1);
-  text-shadow: 0 8px 25px rgba(249,127,130,0.6);
-  margin-bottom: 15px;
-}
-
-.final-
 .start-content h1 {
   font-family: 'Lobster', cursive;
   font-size: 64px;
@@ -212,101 +112,7 @@ button:hover {
   flex-direction: column;
   justify-content: flex-start;
   padding-top: 120px;
-}
-
-.katti-text {
-  font-size: 80px;
-  color: white;
-  text-shadow: 0 6px 20px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
-}
-
-.sorry-text {
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
-  background: rgba(0,0,0,0.7);
-  padding: 12px 28px;
-  border-radius: 30px;
-  animation: bounce 1.6s infinite;
-}
-
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px
-.start-content h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 64px;
-  color: rgba(249,127,130,1);
-  margin-bottom: 20px;
-}
-
-.start-content p {
-  font-size: 22px;
-  opacity: 0.8;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.4; }
-  50% { opacity: 1; }
-  100% { opacity: 0.4; }
-}
-
-/* QUESTION BOX */
-.box {
-  background: white;
-  padding: 60px 70px;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(249,127,130,0.25);
-  width: 700px;
-  max-width: 90%;
-}
-
-.question {
-  font-size: 56px;
-  color: rgba(249,127,130,1);
-  margin-bottom: 40px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-button {
-  font-size: 28px;
-  padding: 18px 50px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.yes-btn {
-  background: rgba(249,127,130,1);
-  color: white;
-}
-
-.no-btn {
-  background: white;
-  color: rgba(249,127,130,1);
-  border: 2px solid rgba(249,127,130,1);
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-/* KATTI SCREEN */
-.katti-bg {
-  background-image: url("katti.jpg");
-  background-size: cover;
-  background-position: center;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-top: 120px;
+  z-index: 4;
 }
 
 .katti-text {
@@ -331,15 +137,18 @@ button:hover {
   50% { transform: translateY(-6px); }
 }
 
-/* FINAL SCREEN */
+/* FINAL YES SCREEN */
 .love-text {
-  font-size: 96px;   /* INCREASED */
   font-family: 'Lobster', cursive;
+  font-size: 96px; /* BIG TEXT */
   color: rgba(249,127,130,1);
   text-shadow: 0 8px 25px rgba(249,127,130,0.6);
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
+.final-text {
+  font-size: 32px;
+}
 </style>
 </head>
 
@@ -373,11 +182,11 @@ button:hover {
   <div class="sorry-text">Tap to say sorry 🥺</div>
 </div>
 
-<!-- YES SCREEN -->
+<!-- YES FINAL SCREEN -->
 <div id="yesScreen" class="screen hidden">
   <div class="box">
     <div class="love-text">I love you baby 💖</div>
-    <p>Happy Propose Day 💍✨</p>
+    <div class="final-text">Happy Propose Day 💍✨</div>
   </div>
 </div>
 
@@ -399,8 +208,8 @@ const yesScreen = document.getElementById("yesScreen");
 const questionText = document.getElementById("questionText");
 
 function startApp() {
-  startScreen.classList.add("hidden");
-  questionScreen.classList.remove("hidden");
+  startScreen.style.display = "none"; // HARD HIDE
+  questionScreen.style.display = "flex";
   questionText.innerText = questions[currentQuestion];
 }
 
@@ -409,126 +218,25 @@ function yesClick() {
   if (currentQuestion < questions.length) {
     questionText.innerText = questions[currentQuestion];
   } else {
-    questionScreen.classList.add("hidden");
-    yesScreen.classList.remove("hidden");
+    questionScreen.style.display = "none";
+    yesScreen.style.display = "flex";
   }
 }
 
 function noClick() {
-  questionScreen.classList.add("hidden");
-  noScreen.classList.remove("hidden");
+  questionScreen.style.display = "none";
+  noScreen.style.display = "flex";
 }
 
 function goBack() {
-  noScreen.classList.add("hidden");
-  questionScreen.classList.remove("hidden");
+  noScreen.style.display = "none";
+  questionScreen.style.display = "flex";
 }
 </script>
 
 </body>
 </html>
-      margin-bottom: 20px;
-    }
-
-    .tap-text {
-      font-size: 22px;
-      opacity: 0.8;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 0.4; }
-      50% { opacity: 1; }
-      100% { opacity: 0.4; }
-    }
-
-    /* QUESTION BOX */
-    .box {
-      background: white;
-      padding: 60px 70px;
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(249, 127, 130, 0.25);
-      width: 700px;
-      max-width: 90%;
-    }
-
-    .question {
-      font-size: 56px;
-      color: rgba(249, 127, 130, 1);
-      margin-bottom: 40px;
-    }
-
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    button {
-      font-size: 28px;
-      padding: 18px 50px;
-      border-radius: 40px;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .yes-btn {
-      background: rgba(249, 127, 130, 1);
-      color: white;
-    }
-
-    .no-btn {
-      background: white;
-      color: rgba(249, 127, 130, 1);
-      border: 2px solid rgba(249, 127, 130, 1);
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    /* KATTI SCREEN */
-    .katti-bg {
-      position: fixed;
-      inset: 0;
-      background-image: url("katti.jpg");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      padding-top: 120px;
-      z-index: 10;
-    }
-
-    .katti-text {
-      font-size: 80px;
-      color: white;
-      text-shadow: 0 6px 20px rgba(0,0,0,0.7);
-      margin-bottom: 20px;
-    }
-
-    .sorry-text {
-      font-size: 28px;
-      font-weight: 700;
-      color: white;
-      background: rgba(0,0,0,0.7);
-      padding: 12px 28px;
-      border-radius: 30px;
-      animation: bounce 1.6s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-
-    /* FINAL YES SCREEN */
-    .love-text {
-      font-size: 48px;
-      color: rgba(249, 127, 130, 1);
+30, 1);
       margin-bottom: 10px;
     }
   </style>
