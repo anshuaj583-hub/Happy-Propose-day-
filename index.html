@@ -79,38 +79,37 @@
   </div>
 
   <script>
-    const questions = [
-      "Do you want me annoying you for life? 😌",
-      "Will you let me win arguments? 😏",
-      "Will you stay when things get hard? 🥹",
-      "Will you hold my hand through everything? 🤍",
-      "Can I grow old with you? ♾️💕"
-    ];
+<script>
+const questions = [
+  "Do you want me annoying you for life? 😌",
+  "Will you let me win arguments? 😏",
+  "Will you stay when things get hard? 🥹",
+  "Will you hold my hand through everything? 🤍",
+  "Can I grow old with you? ♾️💕"
+];
 
-    let current = 0;
+let current = 0;
 
-    function yesClick() {
-      current++;
+function yesClick() {
+  current++;
+  if (current < questions.length) {
+    document.getElementById("question").innerText = questions[current];
+  } else {
+    document.getElementById("app").innerHTML = `
+      <h1 style="font-size:3.5rem;">YAYYY 💕</h1>
+      <h2>You’re stuck with me forever 😌</h2>
+      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+    `;
+  }
+}
 
-      if (current < questions.length) {
-        document.getElementById("question").innerText = questions[current];
-      } else {
-        document.getElementById("app").innerHTML = `
-          <h1 style="font-size:3.5rem;">Love you baby 💕</h1>
-          <h1 style="font-size:3rem;">Happy Propose Day 💍✨</h1>
-          <img src="https://media.giphy.com/media/3oriO6qJiXajN0TyDu/giphy.gif">
-        `;
-      }
-    }
-
-    function noClick() {
-      document.getElementById("app").innerHTML = `
-        <h1 style="font-size:3.8rem;">KATTI 😤💔</h1>
-        <h2 style="font-size:2.5rem;">Me very sad now 🥺</h2>
-        <h2 style="font-size:2.2rem;">Mana lo pls 😭</h2>
-        <img src="https://media.giphy.com/media/l2JhrYYxAD6N5gble/giphy.gif">
-      `;
-    }
-  </script>
+function noClick() {
+  document.getElementById("app").innerHTML = `
+    <h1 style="font-size:3.8rem;">KATTI 😤</h1>
+    <h2 style="font-size:2.4rem;">That hurt 🥺</h2>
+    <img src="https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif">
+  `;
+}
+</script>
 </body>
   </html>
