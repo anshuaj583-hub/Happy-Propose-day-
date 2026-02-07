@@ -9,16 +9,15 @@
 
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'lobster', cursive;
-      background-color: rgba(249, 127, 130, 0.15);
-      display: flex;
-      justify-content: center;
-  align-items: flex-start;   
-  padding-top: 120px;         
-      }
-      height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(249, 127, 130, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 120px;
+  height: 100vh;
     }
 
     .screen {
@@ -94,7 +93,7 @@
 <body>
 
   <!-- QUESTION SCREEN -->
-  <div id="questionScreen" class="screen">
+ <div id="questionScreen" class="screen">
   <div class="box">
     <div class="question" id="questionText"></div>
     <div class="buttons">
@@ -102,21 +101,23 @@
       <button class="no-btn" onclick="noClick()">No 😴</button>
     </div>
   </div>
-  </div>
+ </div>
 
   <!-- NO (KATTI) SCREEN -->
-  <div id="noScreen" class="screen hidden">
+<div id="noScreen" class="screen hidden">
   <div class="box">
     <img src="katti.png" class="katti-img" />
     <h1 class="love-text">Katti 😤💔</h1>
     <p>You broke my heart… sulking mode ON 😔</p>
   </div>
-  </div>
+</div>
 
   <!-- YES FINAL SCREEN -->
   <div id="yesScreen" class="screen hidden">
+  <div class="box">
     <h1 class="love-text">I love you baby 💖</h1>
     <p>Happy Propose Day 💍✨</p>
+  </div>
   </div>
 
   <script>
