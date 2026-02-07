@@ -1,115 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Happy Propose Day 💕</title>
 
-  <style>
-    @font-face {
-      font-family: 'Bromello';
-      src: url('bromello.ttf') format('truetype');
-    }
+  <!-- Simple font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+  <style>
     body {
       margin: 0;
-      height: 100vh;
-      background-color: #ffd6dc; /* baby pink */
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: rgba(249, 127, 130, 0.15);
       display: flex;
-      align-items: center;
       justify-content: center;
-      font-family: 'Bromello', cursive;
+      align-items: center;
+      height: 100vh;
     }
 
-    #app {
+    .screen {
       text-align: center;
-      padding: 30px;
-      color: rgba(249, 127, 130, 1);
+      padding: 20px;
     }
 
-    #question {
-      font-size: 3.2rem;
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      font-size: 32px;
+      color: rgba(249, 127, 130, 1);
       margin-bottom: 40px;
     }
 
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
     button {
-      font-family: 'Bromello', cursive;
-      font-size: 2.2rem;
-      padding: 14px 40px;
-      margin: 10px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 18px;
+      padding: 12px 30px;
+      border-radius: 30px;
       border: none;
-      border-radius: 40px;
       cursor: pointer;
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
-    .yes {
-      background-color: rgba(249, 127, 130, 0.2);
+    .yes-btn {
+      background-color: rgba(249, 127, 130, 1);
+      color: white;
+    }
+
+    .no-btn {
+      background-color: white;
       color: rgba(249, 127, 130, 1);
+      border: 2px solid rgba(249, 127, 130, 1);
     }
 
-    .yes:hover {
-      background-color: rgba(249, 127, 130, 0.35);
+    .yes-btn:hover {
       transform: scale(1.05);
     }
 
-    .no {
-      background-color: rgba(249, 127, 130, 0.12);
-      color: rgba(249, 127, 130, 1);
-    }
-
-    .no:hover {
-      background-color: rgba(249, 127, 130, 0.25);
-    }
-
-    img {
+    .katti-img {
       width: 260px;
-      margin-top: 25px;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .love-text {
+      font-size: 36px;
+      color: rgba(249, 127, 130, 1);
     }
   </style>
 </head>
 
 <body>
-  <div id="app">
-    <div id="question">
-      Do you want me annoying you for life? 😌
-    </div>
 
-    <button class="yes" onclick="yesClick()">Yes 💕</button>
-    <button class="no" onclick="noClick()">No 🙈</button>
+  <!-- QUESTION SCREEN -->
+  <div id="questionScreen" class="screen">
+    <div class="question" id="questionText"></div>
+    <div class="buttons">
+      <button class="yes-btn" onclick="yesClick()">Yes 💕</button>
+      <button class="no-btn" onclick="noClick()">No 😶</button>
+    </div>
+  </div>
+
+  <!-- NO (KATTI) SCREEN -->
+  <div id="noScreen" class="screen hidden">
+    <img src="katti.png" class="katti-img" />
+    <h1 class="love-text">Katti 😤💔</h1>
+    <p>You broke my heart… sulking mode ON 😔</p>
+  </div>
+
+  <!-- YES FINAL SCREEN -->
+  <div id="yesScreen" class="screen hidden">
+    <h1 class="love-text">I love you baby 💖</h1>
+    <p>Happy Propose Day 💍✨</p>
   </div>
 
   <script>
-<script>
-const questions = [
-  "Do you want me annoying you for life? 😌",
-  "Will you let me win arguments? 😏",
-  "Will you stay when things get hard? 🥹",
-  "Will you hold my hand through everything? 🤍",
-  "Can I grow old with you? ♾️💕"
-];
+    const questions = [
+      "Do you want me annoying you for life? 😌",
+      "Will you let me win arguments? 😏",
+      "Will you stay when things get hard? 🥹",
+      "Will you hold my hand through everything? 🤍",
+      "Can I grow old with you? ♾️💕"
+    ];
 
-let current = 0;
+    let currentQuestion = 0;
 
-function yesClick() {
-  current++;
-  if (current < questions.length) {
-    document.getElementById("question").innerText = questions[current];
-  } else {
-    document.getElementById("app").innerHTML = `
-      <h1 style="font-size:3.5rem;">YAYYY 💕</h1>
-      <h2>You’re stuck with me forever 😌</h2>
-      <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
-    `;
-  }
-}
+    const questionText = document.getElementById("questionText");
+    const questionScreen = document.getElementById("questionScreen");
+    const noScreen = document.getElementById("noScreen");
+    const yesScreen = document.getElementById("yesScreen");
 
-function noClick() {
-  document.getElementById("app").innerHTML = `
-    <h1 style="font-size:3.8rem;">KATTI 😤</h1>
-    <h2 style="font-size:2.4rem;">That hurt 🥺</h2>
-    <img src="https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif">
-  `;
-}
-</script>
+    questionText.innerText = questions[currentQuestion];
+
+    function yesClick() {
+      currentQuestion++;
+
+      if (currentQuestion < questions.length) {
+        questionText.innerText = questions[currentQuestion];
+      } else {
+        questionScreen.classList.add("hidden");
+        yesScreen.classList.remove("hidden");
+      }
+    }
+
+    function noClick() {
+      questionScreen.classList.add("hidden");
+      noScreen.classList.remove("hidden");
+    }
+  </script>
+
 </body>
-  </html>
+</html>
