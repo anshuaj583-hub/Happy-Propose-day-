@@ -87,6 +87,32 @@
   max-width: 90%;
   margin: auto;
 }
+    .katti-bg {
+  background-image: url('katti.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.katti-text {
+  font-size: 80px;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.sorry-text {
+  margin-top: 15px;
+  font-size: 22px;
+  color: white;
+  opacity: 0.85;
+  text-decoration: underline;
+      }
+    
   </style>
 </head>
 
@@ -104,13 +130,11 @@
  </div>
 
   <!-- NO (KATTI) SCREEN -->
-<div id="noScreen" class="screen hidden">
-  <div class="box">
-    <img src="katti.jpg" class="katti-img" />
-    <h1 class="love-text">Katti 😤💔</h1>
-    <p>You broke my heart… sulking mode ON 😔</p>
-  </div>
+<div id="noScreen" class="screen hidden katti-bg" onclick="goBack()">
+  <h1 class="katti-text">Katti 😤💔</h1>
+  <p class="sorry-text">Tap to say sorry 🥺</p>
 </div>
+
 
   <!-- YES FINAL SCREEN -->
   <div id="yesScreen" class="screen hidden">
@@ -152,6 +176,10 @@
     function noClick() {
       questionScreen.classList.add("hidden");
       noScreen.classList.remove("hidden");
+    }
+    function goBack() {
+  noScreen.classList.add("hidden");
+  questionScreen.classList.remove("hidden");
     }
   </script>
 
