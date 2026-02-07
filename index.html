@@ -4,13 +4,10 @@
 <meta charset="UTF-8">
 <title>Happy Propose Day 💕</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -19,7 +16,7 @@ body {
   overflow: hidden;
 }
 
-/* COMMON SCREEN */
+/* SCREEN */
 .screen {
   position: fixed;
   inset: 0;
@@ -27,126 +24,100 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 1;
 }
 
-.hidden {
-  display: none !important;
-}
+.hidden { display: none; }
 
-/* START SCREEN */
-#startScreen {
-  z-index: 5;
-}
-
+/* START */
 .start-content h1 {
   font-family: 'Lobster', cursive;
   font-size: 64px;
-  color: rgba(249,127,130,1);
-  margin-bottom: 20px;
+  color: #f97f82;
 }
 
 .start-content p {
   font-size: 22px;
-  opacity: 0.85;
+  opacity: 0.8;
   animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-  0% { opacity: 0.4; }
+  0%,100% { opacity: .4; }
   50% { opacity: 1; }
-  100% { opacity: 0.4; }
 }
 
-/* QUESTION BOX */
+/* BOX */
 .box {
   background: white;
-  padding: 60px 70px;
+  padding: 60px;
   border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(249,127,130,0.25);
   width: 700px;
   max-width: 90%;
+  box-shadow: 0 10px 30px rgba(249,127,130,.3);
 }
 
 .question {
   font-size: 56px;
-  color: rgba(249,127,130,1);
+  color: #f97f82;
   margin-bottom: 40px;
 }
 
 .buttons {
   display: flex;
-  justify-content: center;
   gap: 20px;
+  justify-content: center;
 }
 
 button {
   font-size: 28px;
-  padding: 18px 50px;
+  padding: 16px 45px;
   border-radius: 40px;
   border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 .yes-btn {
-  background: rgba(249,127,130,1);
+  background: #f97f82;
   color: white;
 }
 
 .no-btn {
   background: white;
-  color: rgba(249,127,130,1);
-  border: 2px solid rgba(249,127,130,1);
+  color: #f97f82;
+  border: 2px solid #f97f82;
 }
 
-button:hover {
-  transform: scale(1.05);
-}
-
-/* KATTI SCREEN */
-.katti-bg {
-  background-image: url("katti.jpg");
-  background-size: cover;
-  background-position: center;
+/* KATTI */
+.katti {
+  background: url("katti.jpg") center/cover no-repeat;
   flex-direction: column;
-  justify-content: flex-start;
   padding-top: 120px;
-  z-index: 4;
 }
 
 .katti-text {
   font-size: 80px;
   color: white;
-  text-shadow: 0 6px 20px rgba(0,0,0,0.7);
-  margin-bottom: 20px;
+  text-shadow: 0 6px 20px black;
 }
 
-.sorry-text {
+.sorry {
+  margin-top: 20px;
   font-size: 28px;
-  font-weight: 700;
+  font-weight: bold;
   color: white;
-  background: rgba(0,0,0,0.7);
-  padding: 12px 28px;
+  background: rgba(0,0,0,.7);
+  padding: 12px 30px;
   border-radius: 30px;
-  animation: bounce 1.6s infinite;
 }
 
-@keyframes bounce {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-/* FINAL YES SCREEN */
-.love-text {
+/* FINAL */
+.love {
   font-family: 'Lobster', cursive;
-  font-size: 96px; /* BIG TEXT */
-  color: rgba(249,127,130,1);
-  text-shadow: 0 8px 25px rgba(249,127,130,0.6);
-  margin-bottom: 20px;
+  font-size: 96px;
+  color: #f97f82;
 }
 
-.final-text {
+.final {
   font-size: 32px;
 }
 </style>
@@ -154,174 +125,81 @@ button:hover {
 
 <body>
 
-<!-- START SCREEN -->
-<div id="startScreen" class="screen">
-  <div class="start-content" onclick="startApp()">
-    <h1>
-      On this Propose Day 🌹<br>
-      I have one important question…
-    </h1>
+<!-- START -->
+<div id="start" class="screen">
+  <div class="start-content" onclick="start()">
+    <h1>On this Propose Day 🌹<br>I have one question…</h1>
     <p>Tap to begin 💌</p>
   </div>
 </div>
 
-<!-- QUESTION SCREEN -->
-<div id="questionScreen" class="screen hidden">
+<!-- QUESTION -->
+<div id="question" class="screen hidden">
   <div class="box">
-    <div class="question" id="questionText"></div>
+    <div id="qText" class="question"></div>
     <div class="buttons">
-      <button class="yes-btn" onclick="yesClick()">Yes 😘</button>
-      <button class="no-btn" onclick="noClick()">No 😴</button>
+      <button class="yes-btn" onclick="yes()">Yes 😘</button>
+      <button class="no-btn" onclick="no()">No 😴</button>
     </div>
   </div>
 </div>
 
-<!-- KATTI SCREEN -->
-<div id="noScreen" class="screen hidden katti-bg" onclick="goBack()">
+<!-- KATTI -->
+<div id="katti" class="screen hidden katti" onclick="back()">
   <div class="katti-text">Katti 😤💔</div>
-  <div class="sorry-text">Tap to say sorry 🥺</div>
+  <div class="sorry">Tap to say sorry 🥺</div>
 </div>
 
-<!-- YES FINAL SCREEN -->
-<div id="yesScreen" class="screen hidden">
+<!-- FINAL -->
+<div id="final" class="screen hidden">
   <div class="box">
-    <div class="love-text">I love you baby 💖</div>
-    <div class="final-text">Happy Propose Day 💍✨</div>
+    <div class="love">I love you baby 💖</div>
+    <div class="final">Happy Propose Day 💍✨</div>
   </div>
 </div>
 
 <script>
-const questions = [
-  "Do you want me annoying you for life? 😌",
-  "Will you let me win arguments? 😏",
-  "Will you stay when things get hard? 🥹",
-  "Will you hold my hand through everything? 🤍",
-  "Can I grow old with you? ♾️💕"
+const qs = [
+ "Do you want me annoying you for life? 😌",
+ "Will you let me win arguments? 😏",
+ "Will you stay when things get hard? 🥹",
+ "Will you hold my hand through everything? 🤍",
+ "Can I grow old with you? ♾️💕"
 ];
 
-let currentQuestion = 0;
+let i = 0;
 
-const startScreen = document.getElementById("startScreen");
-const questionScreen = document.getElementById("questionScreen");
-const noScreen = document.getElementById("noScreen");
-const yesScreen = document.getElementById("yesScreen");
-const questionText = document.getElementById("questionText");
-
-function startApp() {
-  startScreen.style.display = "none"; // HARD HIDE
-  questionScreen.style.display = "flex";
-  questionText.innerText = questions[currentQuestion];
+function start(){
+  startEl().classList.add("hidden");
+  questionEl().classList.remove("hidden");
+  qText().innerText = qs[i];
 }
 
-function yesClick() {
-  currentQuestion++;
-  if (currentQuestion < questions.length) {
-    questionText.innerText = questions[currentQuestion];
+function yes(){
+  i++;
+  if(i < qs.length){
+    qText().innerText = qs[i];
   } else {
-    questionScreen.style.display = "none";
-    yesScreen.style.display = "flex";
+    questionEl().classList.add("hidden");
+    finalEl().classList.remove("hidden");
   }
 }
 
-function noClick() {
-  questionScreen.style.display = "none";
-  noScreen.style.display = "flex";
+function no(){
+  questionEl().classList.add("hidden");
+  kattiEl().classList.remove("hidden");
 }
 
-function goBack() {
-  noScreen.style.display = "none";
-  questionScreen.style.display = "flex";
+function back(){
+  kattiEl().classList.add("hidden");
+  questionEl().classList.remove("hidden");
 }
-</script>
 
-</body>
-</html>
-30, 1);
-      margin-bottom: 10px;
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- START SCREEN -->
-<div id="startScreen" class="screen" onclick="startApp()">
-  <div>
-    <div class="start-text">
-      On this Propose Day 🌹<br>
-      I have one important question…
-    </div>
-    <div class="tap-text">Tap to begin 💌</div>
-  </div>
-</div>
-
-<!-- QUESTION SCREEN -->
-<div id="questionScreen" class="screen hidden">
-  <div class="box">
-    <div class="question" id="questionText"></div>
-    <div class="buttons">
-      <button class="yes-btn" onclick="yesClick()">Yes 😘</button>
-      <button class="no-btn" onclick="noClick()">No 😴</button>
-    </div>
-  </div>
-</div>
-
-<!-- KATTI SCREEN -->
-<div id="noScreen" class="screen hidden katti-bg" onclick="goBack()">
-  <div class="katti-text">Katti 😤💔</div>
-  <div class="sorry-text">Tap to say sorry 🥺</div>
-</div>
-
-<!-- YES FINAL SCREEN -->
-<div id="yesScreen" class="screen hidden">
-  <div class="box">
-    <div class="love-text">I love you baby 💖</div>
-    <p>Happy Propose Day 💍✨</p>
-  </div>
-</div>
-
-<script>
-  const questions = [
-    "Do you want me annoying you for life? 😌",
-    "Will you let me win arguments? 😏",
-    "Will you stay when things get hard? 🥹",
-    "Will you hold my hand through everything? 🤍",
-    "Can I grow old with you? ♾️💕"
-  ];
-
-  let currentQuestion = 0;
-
-  const startScreen = document.getElementById("startScreen");
-  const questionScreen = document.getElementById("questionScreen");
-  const noScreen = document.getElementById("noScreen");
-  const yesScreen = document.getElementById("yesScreen");
-  const questionText = document.getElementById("questionText");
-
-  function startApp() {
-    startScreen.classList.add("hidden");
-    questionScreen.classList.remove("hidden");
-    questionText.innerText = questions[currentQuestion];
-  }
-
-  function yesClick() {
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-      questionText.innerText = questions[currentQuestion];
-    } else {
-      questionScreen.classList.add("hidden");
-      yesScreen.classList.remove("hidden");
-    }
-  }
-
-  function noClick() {
-    questionScreen.classList.add("hidden");
-    noScreen.classList.remove("hidden");
-  }
-
-  function goBack() {
-    noScreen.classList.add("hidden");
-    questionScreen.classList.remove("hidden");
-  }
+const startEl = () => document.getElementById("start");
+const questionEl = () => document.getElementById("question");
+const kattiEl = () => document.getElementById("katti");
+const finalEl = () => document.getElementById("final");
+const qText = () => document.getElementById("qText");
 </script>
 
 </body>
