@@ -49,3 +49,68 @@
 
     .yes:hover {
       background-color: rgba(249, 127, 130, 0.35);
+      transform: scale(1.05);
+    }
+
+    .no {
+      background-color: rgba(249, 127, 130, 0.12);
+      color: rgba(249, 127, 130, 1);
+    }
+
+    .no:hover {
+      background-color: rgba(249, 127, 130, 0.25);
+    }
+
+    img {
+      width: 260px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div id="question">
+      Do you want me annoying you for life? 😌
+    </div>
+
+    <button class="yes" onclick="yesClick()">Yes 💕</button>
+    <button class="no" onclick="noClick()">No 🙈</button>
+  </div>
+
+  <script>
+    const questions = [
+      "Do you want me annoying you for life? 😌",
+      "Will you let me win arguments? 😏",
+      "Will you stay when things get hard? 🥹",
+      "Will you hold my hand through everything? 🤍",
+      "Can I grow old with you? ♾️💕"
+    ];
+
+    let current = 0;
+
+    function yesClick() {
+      current++;
+
+      if (current < questions.length) {
+        document.getElementById("question").innerText = questions[current];
+      } else {
+        document.getElementById("app").innerHTML = `
+          <h1 style="font-size:3.5rem;">Love you baby 💕</h1>
+          <h1 style="font-size:3rem;">Happy Propose Day 💍✨</h1>
+          <img src="https://media.giphy.com/media/3oriO6qJiXajN0TyDu/giphy.gif">
+        `;
+      }
+    }
+
+    function noClick() {
+      document.getElementById("app").innerHTML = `
+        <h1 style="font-size:3.8rem;">KATTI 😤💔</h1>
+        <h2 style="font-size:2.5rem;">Me very sad now 🥺</h2>
+        <h2 style="font-size:2.2rem;">Mana lo pls 😭</h2>
+        <img src="https://media.giphy.com/media/l2JhrYYxAD6N5gble/giphy.gif">
+      `;
+    }
+  </script>
+</body>
+  </html>
