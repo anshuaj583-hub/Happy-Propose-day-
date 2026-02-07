@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Happy Propose Day 💕</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Propose</title>
 
 <style>
-* { box-sizing: border-box; }
-
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
   background: #fbe4d8;
-  overflow: hidden;
+  font-family: Arial, sans-serif;
 }
 
-/* SCREEN */
 .screen {
   position: fixed;
   inset: 0;
@@ -26,180 +20,87 @@ body {
   text-align: center;
 }
 
-.hidden { display: none; }
-
-/* START */
-.start-content h1 {
-  font-family: 'Lobster', cursive;
-  font-size: 64px;
-  color: #f97f82;
+.hidden {
+  display: none;
 }
 
-.start-content p {
-  font-size: 22px;
-  opacity: 0.8;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%,100% { opacity: .4; }
-  50% { opacity: 1; }
-}
-
-/* BOX */
 .box {
   background: white;
-  padding: 60px;
-  border-radius: 30px;
-  width: 700px;
-  max-width: 90%;
-  box-shadow: 0 10px 30px rgba(249,127,130,.3);
-}
-
-.question {
-  font-size: 56px;
-  color: #f97f82;
-  margin-bottom: 40px;
-}
-
-.buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
+  padding: 30px;
+  border-radius: 20px;
+  width: 80%;
 }
 
 button {
-  font-size: 28px;
-  padding: 16px 45px;
-  border-radius: 40px;
-  border: none;
-  cursor: pointer;
-}
-
-.yes-btn {
-  background: #f97f82;
-  color: white;
-}
-
-.no-btn {
-  background: white;
-  color: #f97f82;
-  border: 2px solid #f97f82;
-}
-
-/* KATTI */
-.katti {
-  background: url("katti.jpg") center/cover no-repeat;
-  flex-direction: column;
-  padding-top: 120px;
-}
-
-.katti-text {
-  font-size: 80px;
-  color: white;
-  text-shadow: 0 6px 20px black;
-}
-
-.sorry {
-  margin-top: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: white;
-  background: rgba(0,0,0,.7);
   padding: 12px 30px;
-  border-radius: 30px;
+  font-size: 18px;
+  margin: 10px;
 }
 
-/* FINAL */
-.love {
-  font-family: 'Lobster', cursive;
-  font-size: 96px;
-  color: #f97f82;
-}
-
-.final {
-  font-size: 32px;
+#katti {
+  background: url("katti.jpg") center/cover no-repeat;
+  color: white;
+  flex-direction: column;
 }
 </style>
 </head>
 
 <body>
 
-<!-- START -->
 <div id="start" class="screen">
-  <div class="start-content" onclick="start()">
-    <h1>On this Propose Day 🌹<br>I have one question…</h1>
-    <p>Tap to begin 💌</p>
+  <div class="box">
+    <h2>Tap to start 💖</h2>
+    <button onclick="start()">Start</button>
   </div>
 </div>
 
-<!-- QUESTION -->
 <div id="question" class="screen hidden">
   <div class="box">
-    <div id="qText" class="question"></div>
-    <div class="buttons">
-      <button class="yes-btn" onclick="yes()">Yes 😘</button>
-      <button class="no-btn" onclick="no()">No 😴</button>
-    </div>
+    <h2 id="q">Do you like me? 😌</h2>
+    <button onclick="yes()">Yes</button>
+    <button onclick="no()">No</button>
   </div>
 </div>
 
-<!-- KATTI -->
-<div id="katti" class="screen hidden katti" onclick="back()">
-  <div class="katti-text">Katti 😤💔</div>
-  <div class="sorry">Tap to say sorry 🥺</div>
+<div id="katti" class="screen hidden" onclick="back()">
+  <h1>Katti 😤💔</h1>
+  <p>Tap to say sorry</p>
 </div>
 
-<!-- FINAL -->
 <div id="final" class="screen hidden">
   <div class="box">
-    <div class="love">I love you baby 💖</div>
-    <div class="final">Happy Propose Day 💍✨</div>
+    <h1>I Love You 💖</h1>
+    <p>Happy Propose Day 💍</p>
   </div>
 </div>
 
 <script>
-const qs = [
- "Do you want me annoying you for life? 😌",
- "Will you let me win arguments? 😏",
- "Will you stay when things get hard? 🥹",
- "Will you hold my hand through everything? 🤍",
- "Can I grow old with you? ♾️💕"
-];
-
-let i = 0;
-
-function start(){
-  startEl().classList.add("hidden");
-  questionEl().classList.remove("hidden");
-  qText().innerText = qs[i];
+function start() {
+  hideAll();
+  document.getElementById("question").classList.remove("hidden");
 }
 
-function yes(){
-  i++;
-  if(i < qs.length){
-    qText().innerText = qs[i];
-  } else {
-    questionEl().classList.add("hidden");
-    finalEl().classList.remove("hidden");
-  }
+function yes() {
+  hideAll();
+  document.getElementById("final").classList.remove("hidden");
 }
 
-function no(){
-  questionEl().classList.add("hidden");
-  kattiEl().classList.remove("hidden");
+function no() {
+  hideAll();
+  document.getElementById("katti").classList.remove("hidden");
 }
 
-function back(){
-  kattiEl().classList.add("hidden");
-  questionEl().classList.remove("hidden");
+function back() {
+  hideAll();
+  document.getElementById("question").classList.remove("hidden");
 }
 
-const startEl = () => document.getElementById("start");
-const questionEl = () => document.getElementById("question");
-const kattiEl = () => document.getElementById("katti");
-const finalEl = () => document.getElementById("final");
-const qText = () => document.getElementById("qText");
+function hideAll() {
+  document.getElementById("start").classList.add("hidden");
+  document.getElementById("question").classList.add("hidden");
+  document.getElementById("katti").classList.add("hidden");
+  document.getElementById("final").classList.add("hidden");
+}
 </script>
 
 </body>
