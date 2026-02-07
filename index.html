@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Happy Propose Day 💕</title>
 
-<!-- FONTS -->
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -36,14 +36,16 @@ body {
 /* START SCREEN */
 .start-content h1 {
   font-family: 'Lobster', cursive;
-  font-size: 64px;
+  font-size: 82px; /* INCREASED SIZE */
   color: rgba(249,127,130,1);
+  line-height: 1.15;
+  text-shadow: 0 6px 20px rgba(249,127,130,0.4);
   margin-bottom: 20px;
 }
 
 .start-content p {
-  font-size: 22px;
-  opacity: 0.8;
+  font-size: 24px;
+  opacity: 0.85;
   animation: pulse 1.5s infinite;
 }
 
@@ -133,8 +135,11 @@ button:hover {
 
 /* FINAL SCREEN */
 .love-text {
-  font-size: 48px;
+  font-size: 72px;
+  font-family: 'Lobster', cursive;
   color: rgba(249,127,130,1);
+  text-shadow: 0 6px 20px rgba(249,127,130,0.5);
+  margin-bottom: 10px;
 }
 </style>
 </head>
@@ -169,11 +174,11 @@ button:hover {
   <div class="sorry-text">Tap to say sorry 🥺</div>
 </div>
 
-<!-- YES SCREEN -->
+<!-- YES FINAL SCREEN -->
 <div id="yesScreen" class="screen hidden">
   <div class="box">
-    <div class="love-text">I love you baby 💖</div>
-    <p>Happy Propose Day 💍✨</p>
+    <div class="love-text">Happy Propose Day 💕</div>
+    <p>I love you baby 💖</p>
   </div>
 </div>
 
@@ -222,75 +227,5 @@ function goBack() {
 </script>
 
 </body>
-</html>
-  margin: 10px;
-}
-
-#katti {
-  background: url("katti.jpg") center/cover no-repeat;
-  color: white;
-  flex-direction: column;
-}
-</style>
-</head>
-
-<body>
-
-<div id="start" class="screen">
-  <div class="box">
-    <h2>Tap to start 💖</h2>
-    <button onclick="start()">Start</button>
-  </div>
-</div>
-
-<div id="question" class="screen hidden">
-  <div class="box">
-    <h2 id="q">Do you like me? 😌</h2>
-    <button onclick="yes()">Yes</button>
-    <button onclick="no()">No</button>
-  </div>
-</div>
-
-<div id="katti" class="screen hidden" onclick="back()">
-  <h1>Katti 😤💔</h1>
-  <p>Tap to say sorry</p>
-</div>
-
-<div id="final" class="screen hidden">
-  <div class="box">
-    <h1>I Love You 💖</h1>
-    <p>Happy Propose Day 💍</p>
-  </div>
-</div>
-
-<script>
-function start() {
-  hideAll();
-  document.getElementById("question").classList.remove("hidden");
-}
-
-function yes() {
-  hideAll();
-  document.getElementById("final").classList.remove("hidden");
-}
-
-function no() {
-  hideAll();
-  document.getElementById("katti").classList.remove("hidden");
-}
-
-function back() {
-  hideAll();
-  document.getElementById("question").classList.remove("hidden");
-}
-
-function hideAll() {
-  document.getElementById("start").classList.add("hidden");
-  document.getElementById("question").classList.add("hidden");
-  document.getElementById("katti").classList.add("hidden");
-  document.getElementById("final").classList.add("hidden");
-}
-</script>
-
-</body>
-</html>
+  </html>
+  
